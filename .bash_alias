@@ -1,0 +1,13 @@
+#dl
+alias cdpy='CUDA_VISIBLE_DEVICES python'
+alias nsmi='nvidia-smi'
+alias gpu="nvidia-smi | awk '/PID/ { seen=1 } seen {print} ' \
+                | tail -n+3 | head -n-1  |  awk '{print \$2, \$(NF-1), \$3}' \
+                | grep -v '^No' \
+                | awk 'BEGIN{OFS=\"\\t\"} { cmd=(\"ps -ho '%a' \" \$3); cmd | getline v; close(cmd); \$4=v; print }'"
+
+#python
+alias piu='pip install --user'
+alias piuu='pip install --user -U'
+alias piu3='pip3 install --user'
+alias piuu3='pip3 install --user -U'
