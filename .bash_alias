@@ -1,5 +1,5 @@
 #dl
-alias cdpy='CUDA_VISIBLE_DEVICES python'
+alias cuda='CUDA_VISIBLE_DEVICES'
 alias nsmi='nvidia-smi'
 alias gpu="nvidia-smi | awk '/PID/ { seen=1 } seen {print} ' \
                 | tail -n+3 | head -n-1  |  awk '{print \$2, \$(NF-1), \$3}' \
