@@ -1,7 +1,7 @@
 #dl
 alias cuda='CUDA_VISIBLE_DEVICES'
 alias nsmi='nvidia-smi'
-alias gpu="nvidia-smi | awk '/PID/ { seen=1 } seen {print} ' \
+alias chgpu="nvidia-smi | awk '/PID/ { seen=1 } seen {print} ' \
                 | tail -n+3 | head -n-1  |  awk '{print \$2, \$(NF-1), \$3}' \
                 | grep -v '^No' \
                 | awk 'BEGIN{OFS=\"\\t\"} { cmd=(\"ps -ho '%a' \" \$3); cmd | getline v; close(cmd); \$4=v; print }'"
